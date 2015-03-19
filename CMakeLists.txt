@@ -4,4 +4,4 @@ project(contactList)
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall")
 
 set(SOURCE_FILES main.c)
-add_executable(contactList ${SOURCE_FILES} linked_list.h contact.h contact.c linked_list.c)
+add_executable(contactList ${SOURCE_FILES} src/linked_list.h src/contact.h contact.c linked_list.c)
