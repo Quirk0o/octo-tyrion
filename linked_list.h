@@ -5,6 +5,7 @@
 #ifndef _CONTACTLIST_LINKED_LIST_H_
 #define _CONTACTLIST_LINKED_LIST_H_
 
+#include <stdbool.h>
 #include "contact.h"
 
 typedef struct Node {
@@ -18,6 +19,15 @@ typedef struct List {
     Node* tail;
 } List;
 
+Node* newNode(Contact*);
+Node* deleteNode(Node*);
 
+List* newList();
+void deleteList(List*);
+void printList(List*);
+void addNode(List*, Node*);
+void addContact(List*, char*, char*);
+List* sort(List*);
+bool isEmpty(List*);
 
 #endif //_CONTACTLIST_LINKED_LIST_H_

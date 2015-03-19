@@ -11,5 +11,7 @@ typedef struct Contact {
 } Contact;
 
 Contact* newContact(char*, char*);
+void printContact(Contact*);
+void deleteContact(Contact*);
 
 #endif //_CONTACTLIST_CONTACT_H_
