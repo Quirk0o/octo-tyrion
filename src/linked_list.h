@@ -24,10 +24,12 @@ Node* deleteNode(Node*);
 
 List* newList();
 void deleteList(List*);
-void printList(List*);
-void addNode(List*, Node*);
 bool isEmpty(List*);
+void printList(List*);
+
+void addNode(List*, Node*);
 void addContact(List*, char*, char*);
+
 List* sort(List*);
 Contact* search(List*, char*);
 #endif //_CONTACTLIST_LINKED_LIST_H_
