@@ -4,7 +4,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#include "src/contact.h"
+#include "contact.h"
 
 Contact* newContact(char* firstName, char* lastName) {
     Contact* c = (Contact*) malloc(sizeof(Contact));
@@ -23,7 +23,7 @@ Contact* newFullContact(
     char *address) {
 
     Contact* c = newContact(firstName, lastName);
-    c->DOF = dateOfBirth;
+    c->birthDate = dateOfBirth;
     c->email = email;
     c->phone = phone;
     c->address = address;
@@ -32,7 +32,7 @@ Contact* newFullContact(
 }
 
 void addDOF(Contact* c, char* dateOfBirth) {
-    c->DOF = dateOfBirth;
+    c->birthDate = dateOfBirth;
 }
 
 void addEmail(Contact* c, char* email) {
@@ -49,7 +49,11 @@ void addAddress(Contact* c, char* address) {
 
 
 void printContact(Contact* c) {
-    printf("Name: %s\nAddress: %s\n", c->firstName, c->address);
+    printf("Name: %s %s\n", c->firstName, c->lastName);
+    if (c->birthDate) printf("Date of birth: %s\n", c->birthDate);
+    if (c->email) printf("Email: %s\n", c->email);
+    if (c->phone) printf("Phone: %s\n", c->phone);
+    if (c->address) printf("Address: %s\n", c->address);
 }
 
 void deleteContact(Contact* c) {

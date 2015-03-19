@@ -8,15 +8,15 @@
 typedef struct Contact {
     char* firstName;
     char* lastName;
-    char* DOF;
+    char* birthDate;
     char* email;
     char* phone;
     char* address;
 } Contact;
 
-Contact* newContact(char*, char*);
-Contact* newFullContact(char *, char *, char *, char *, char *, char *);
-void addDOF(Contact*, char*);
+Contact* newContact(char* firstName, char* lastName);
+Contact* newFullContact(char* firstName, char* lastName, char* birthDate, char* email, char* phone, char* address);
+void addBirthDate(Contact*, char*);
 void addEmail(Contact*, char*);
 void addPhone(Contact*, char*);
 void addAddress(Contact*, char*);

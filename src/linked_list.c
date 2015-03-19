@@ -4,7 +4,8 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include "src/linked_list.h"
+#include <stdio.h>
+#include "linked_list.h"
 
 Node* newNode(Contact* c) {
     Node* n = (Node*) malloc(sizeof(Node));
@@ -41,6 +42,7 @@ void printList(List* l) {
     Node* tmp = l->head;
     while (tmp != NULL) {
         printContact(tmp->value);
+        printf("------------------\n");
         tmp = tmp->next;
     }
 }
@@ -87,10 +89,6 @@ List* concat(List* left, Node* pivot, List* right) {
         result->head = right->head;
         result->tail = right->tail;
     }
-    else if (isEmpty(right)) {
-        result->head = left->head;
-        result->tail = right->tail;
-    }
     else {
         result->head = left->head;
         left->tail->next = right->head;
@@ -98,6 +96,15 @@ List* concat(List* left, Node* pivot, List* right) {
     }
 
     return result;
+}
+
+int compare(Contact* a, Contact* b) {
+    int res = strcmp(a->lastName, b->lastName);
+    if (res == 0) {
+        res = strcmp(a->firstName, b->firstName);
+    }
+
+    return res;
 }
 
 void quicksort(List* l) {
@@ -109,18 +116,16 @@ void quicksort(List* l) {
     pivot->next = NULL;
 
     List left;
-    left.tail = NULL;
-    left.head = NULL;
+    left.head = left.tail = NULL;
     List right;
-    right.tail = NULL;
-    right.head = NULL;
+    right.head = right.tail = NULL;
 
     Node* it = l->head;
     Node* tmp;
     while (it != NULL) {
         tmp = it;
         it = it->next;
-        if (strcmp(tmp->value->firstName, pivot->value->firstName) >= 0) {
+        if (compare(tmp->value, pivot->value) >= 0) {
             addNode(&right, tmp);
         }
         else {
@@ -133,6 +138,7 @@ void quicksort(List* l) {
     List* result = concat(&left, pivot, &right);
     l->head = result->head;
     l->tail = result->tail;
+    free(result);
 }
 
 void sort(List* l) {
@@ -142,9 +148,12 @@ void sort(List* l) {
 Contact* search(List* l, char* firstName, char* lastName) {
     Node* tmp = l->head;
     while (tmp != NULL) {
-        if (strcmp(tmp->value->lastName, lastName) == 0) {
+        if (strcmp(tmp->value->lastName, lastName) == 0
+            && strcmp(tmp->value->firstName, firstName) == 0) {
             return tmp->value;
         }
         tmp = tmp->next;
     }
+
+    return NULL;
 }

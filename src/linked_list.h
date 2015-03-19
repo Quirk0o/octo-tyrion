@@ -34,4 +34,5 @@ void updateContact(List*, Contact*);
 
 void sort(List*);
 Contact* search(List*, char*, char*);
+
 #endif //_CONTACTLIST_LINKED_LIST_H_
