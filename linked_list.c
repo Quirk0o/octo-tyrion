@@ -81,20 +81,23 @@ List* concat(List* left, Node* pivot, List* right) {
         result->tail = right->tail;
     }
 
-
     return result;
 }
 
-List* quicksort(List* l) {
+void quicksort(List* l) {
     if (l->head == l->tail)
-        return l;
+        return;
 
     Node* pivot = l->head;
     l->head = pivot->next;
     pivot->next = NULL;
 
-    List* left = newList();
-    List* right = newList();
+    List left;
+    left.tail = NULL;
+    left.head = NULL;
+    List right;
+    right.tail = NULL;
+    right.head = NULL;
 
     Node* it = l->head;
     Node* tmp;
@@ -102,21 +105,22 @@ List* quicksort(List* l) {
         tmp = it;
         it = it->next;
         if (strcmp(tmp->value->name, pivot->value->name) >= 0) {
-            addNode(right, tmp);
+            addNode(&right, tmp);
         }
         else {
-            addNode(left, tmp);
+            addNode(&left, tmp);
         }
     }
 
-    List* result = concat(quicksort(left), pivot, quicksort(right));
-    free(left);
-    free(right);
-    return result;
+    quicksort(&left);
+    quicksort(&right);
+    List* result = concat(&left, pivot, &right);
+    l->head = result->head;
+    l->tail = result->tail;
 }
 
-List* sort(List* l) {
-    return quicksort(l);
+void sort(List* l) {
+    quicksort(l);
 }
 
 Contact* search(List* l, char* name) {

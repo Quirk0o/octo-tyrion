@@ -30,6 +30,6 @@ void printList(List*);
 void addNode(List*, Node*);
 void addContact(List*, char*, char*);
 
-List* sort(List*);
+void sort(List*);
 Contact* search(List*, char*);
 #endif //_CONTACTLIST_LINKED_LIST_H_

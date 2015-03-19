@@ -5,18 +5,26 @@ int main() {
 
     List* l = newList();
 
-    addContact(l, "Beatka", "Dupa");
-    addContact(l, "Beatka2", "Dupa");
-    addContact(l, "Beatka3", "Dupa");
-    addContact(l, "Beatka4", "Dupa");
+    addContact(l, "1", "Dupa");
+    addContact(l, "2", "Dupa");
+    addContact(l, "3", "Dupa");
+    addContact(l, "4", "Dupa");
+    addContact(l, "1", "Dupa");
+    addContact(l, "2", "Dupa");
+    addContact(l, "7", "Dupa");
+    addContact(l, "2", "Dupa");
+    addContact(l, "6", "Dupa");
+    addContact(l, "8", "Dupa");
+    addContact(l, "3", "Dupa");
+    addContact(l, "1", "Dupa");
     printList(l);
     printf("\n");
 
-    l = sort(l);
+    sort(l);
     printList(l);
     printf("\n");
 
-    Contact* c = search(l, "Beatka3");
+    Contact* c = search(l, "3");
     printContact(c);
 
     deleteList(l);
