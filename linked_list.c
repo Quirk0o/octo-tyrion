@@ -54,9 +54,25 @@ void addNode(List* l, Node* n) {
         l->tail = n;
 }
 
-void addContact(List* l, char*  name, char* address) {
-    Contact* c = newContact(name, address);
+void addContact(List* l, char* firstName, char* lastName) {
+    Contact* c = newContact(firstName, lastName);
     addNode(l, newNode(c));
+}
+
+void addFullContact(List* l,
+    char *firstName,
+    char *lastName,
+    char *dateOfBirth,
+    char *email,
+    char *phone,
+    char *address) {
+
+    Contact* c = newFullContact(firstName, lastName, dateOfBirth, email, phone, address);
+    addNode(l, newNode(c));
+}
+
+void updateContact(List* l, Contact* c) {
+    Contact* old = search(l, c->firstName, c->lastName);
 }
 
 bool isEmpty(List* l) {
@@ -104,7 +120,7 @@ void quicksort(List* l) {
     while (it != NULL) {
         tmp = it;
         it = it->next;
-        if (strcmp(tmp->value->name, pivot->value->name) >= 0) {
+        if (strcmp(tmp->value->firstName, pivot->value->firstName) >= 0) {
             addNode(&right, tmp);
         }
         else {
@@ -123,10 +139,10 @@ void sort(List* l) {
     quicksort(l);
 }
 
-Contact* search(List* l, char* name) {
+Contact* search(List* l, char* firstName, char* lastName) {
     Node* tmp = l->head;
     while (tmp != NULL) {
-        if (strcmp(tmp->value->name, name) == 0) {
+        if (strcmp(tmp->value->lastName, lastName) == 0) {
             return tmp->value;
         }
         tmp = tmp->next;
