@@ -1,6 +1,5 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include "linked_list.h"
+#include "src/linked_list.h"
 
 int main() {
 
@@ -11,9 +10,15 @@ int main() {
     addContact(l, "Beatka3", "Dupa");
     addContact(l, "Beatka4", "Dupa");
     printList(l);
-    l = sort(l);
     printf("\n");
+
+    l = sort(l);
     printList(l);
+    printf("\n");
+
+    Contact* c = search(l, "Beatka3");
+    printContact(c);
+
     deleteList(l);
 
     return 0;

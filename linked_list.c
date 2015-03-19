@@ -4,7 +4,7 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include "linked_list.h"
+#include "src/linked_list.h"
 
 Node* newNode(Contact* c) {
     Node* n = (Node*) malloc(sizeof(Node));
@@ -117,4 +117,14 @@ List* quicksort(List* l) {
 
 List* sort(List* l) {
     return quicksort(l);
+}
+
+Contact* search(List* l, char* name) {
+    Node* tmp = l->head;
+    while (tmp != NULL) {
+        if (strcmp(tmp->value->name, name) == 0) {
+            return tmp->value;
+        }
+        tmp = tmp->next;
+    }
 }

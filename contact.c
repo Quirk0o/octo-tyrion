@@ -4,7 +4,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#include "contact.h"
+#include "src/contact.h"
 
 Contact* newContact(char* name, char* address) {
     Contact* c = (Contact*) malloc(sizeof(Contact));
