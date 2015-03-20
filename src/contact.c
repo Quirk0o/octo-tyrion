@@ -31,7 +31,7 @@ Contact* newFullContact(
     return c;
 }
 
-void addDOF(Contact* c, char* dateOfBirth) {
+void addBirthDate(Contact* c, char* dateOfBirth) {
     c->birthDate = dateOfBirth;
 }
 

@@ -45,6 +45,7 @@ void printList(List* l) {
         printf("------------------\n");
         tmp = tmp->next;
     }
+    printf("\n");
 }
 
 void addNode(List* l, Node* n) {
@@ -71,10 +72,6 @@ void addFullContact(List* l,
 
     Contact* c = newFullContact(firstName, lastName, dateOfBirth, email, phone, address);
     addNode(l, newNode(c));
-}
-
-void updateContact(List* l, Contact* c) {
-    Contact* old = search(l, c->firstName, c->lastName);
 }
 
 bool isEmpty(List* l) {

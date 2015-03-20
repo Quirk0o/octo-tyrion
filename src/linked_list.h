@@ -30,7 +30,6 @@ void printList(List*);
 void addNode(List*, Node*);
 void addContact(List*, char*, char*);
 void addFullContact(List*, char*, char*, char*, char*, char*, char*);
-void updateContact(List*, Contact*);
 
 void sort(List*);
 Contact* search(List*, char*, char*);

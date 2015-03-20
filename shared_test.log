@@ -1,0 +1,109 @@
+Checkpoint 1
+From start:
+real: 0.00000600
+user: 0.00000000
+sys: 0.00000000
+
+Name: John Doe
+Date of birth: 13/05/1993
+Email: jdoe@gmail.com
+Phone: 555 555 555
+Address: ul. Uliczna 2
+------------------
+Name: Beatka Obrok
+Date of birth: 29/06/1993
+Email: beata@obrok.eu
+Phone: 555 555 555
+Address: ul. Uliczna 2
+------------------
+Name: Bob Bob
+------------------
+Name: Bob Doe
+------------------
+Name: Jane Doe
+------------------
+
+
+Checkpoint 2
+From previous checkpoint:
+real: 0.00024100
+user: 0.00000000
+sys: 0.00000000
+
+From start:
+real: 0.00024700
+user: 0.00000000
+sys: 0.00000000
+
+Name: Bob Bob
+------------------
+Name: Bob Doe
+------------------
+Name: Jane Doe
+------------------
+Name: John Doe
+Date of birth: 13/05/1993
+Email: jdoe@gmail.com
+Phone: 555 555 555
+Address: ul. Uliczna 2
+------------------
+Name: Beatka Obrok
+Date of birth: 29/06/1993
+Email: beata@obrok.eu
+Phone: 555 555 555
+Address: ul. Uliczna 2
+------------------
+
+
+Checkpoint 3
+From previous checkpoint:
+real: 0.76467700
+user: 0.00007600
+sys: 0.00000000
+
+From start:
+real: 0.76492400
+user: 0.00007600
+sys: 0.00000000
+
+Name: Bob Bob
+------------------
+Name: Bob Doe
+------------------
+Name: Jane Doe
+------------------
+Name: John Doe
+Date of birth: 13/05/1993
+Email: jdoe@gmail.com
+Phone: 555 555 555
+Address: ul. Uliczna 2
+------------------
+Name: Beatka Obrok
+Date of birth: 29/06/1993
+Email: beata@obrok.eu
+Phone: 555 555 555
+Address: al. Alejowa 5
+------------------
+
+Checkpoint 4
+From previous checkpoint:
+real: 0.00000800
+user: 0.00000000
+sys: 0.00000000
+
+From start:
+real: 0.76493200
+user: 0.00007600
+sys: 0.00000000
+
+Checkpoint 5
+From previous checkpoint:
+real: 0.00000500
+user: 0.00000000
+sys: 0.00000000
+
+From start:
+real: 0.76493700
+user: 0.00007600
+sys: 0.00000000
+

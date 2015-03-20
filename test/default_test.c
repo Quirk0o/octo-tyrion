@@ -23,16 +23,18 @@ void printTimes() {
   times(&currTimes);
 
   printf("Checkpoint %d\n", checkpoint);
-  printf("From previous checkpoint:\n");
-  printf("real: %.8f\nuser: %.8f\nsys: %.8f\n\n",
-      (double)(currReal - prevReal)/CLOCKS_PER_SEC,
-      (double)(currTimes.tms_utime - prevTimes.tms_utime)/CLOCKS_PER_SEC,
-      (double)(currTimes.tms_stime - prevTimes.tms_stime)/CLOCKS_PER_SEC);
+  if (checkpoint > 1) {
+    printf("From previous checkpoint:\n");
+    printf("real: %.8f\nuser: %.8f\nsys: %.8f\n\n",
+        (double) (currReal - prevReal) / CLOCKS_PER_SEC,
+        (double) (currTimes.tms_utime - prevTimes.tms_utime) / CLOCKS_PER_SEC,
+        (double) (currTimes.tms_stime - prevTimes.tms_stime) / CLOCKS_PER_SEC);
+  }
   printf("From start:\n");
   printf("real: %.8f\nuser: %.8f\nsys: %.8f\n\n",
-      (double)(currReal - startReal)/CLOCKS_PER_SEC,
-      (double)(currTimes.tms_utime - startTimes.tms_utime)/CLOCKS_PER_SEC,
-      (double)(currTimes.tms_stime - startTimes.tms_stime)/CLOCKS_PER_SEC);
+      (double) (currReal - startReal) / CLOCKS_PER_SEC,
+      (double) (currTimes.tms_utime - startTimes.tms_utime) / CLOCKS_PER_SEC,
+      (double) (currTimes.tms_stime - startTimes.tms_stime) / CLOCKS_PER_SEC);
   checkpoint++;
 }
 
@@ -44,11 +46,11 @@ int main() {
 
   List* l = newList();
 
+  addContact(l, "Jane", "Doe");
+  addContact(l, "Bob", "Doe");
+  addContact(l, "Bob", "Bob");
   addFullContact(l, "Beatka", "Obrok", "29/06/1993", "beata@obrok.eu", "555 555 555", "ul. Uliczna 2");
-  addFullContact(l, "Dawid", "Romanowski", "13/05/1993", "dawid.romanowski@gmail.com", "555 555 555", "ul. Uliczna 2");
-  addContact(l, "Barbara", "Obrok");
-  addContact(l, "Aleksander", "Gul");
-  addContact(l, "Dawid", "Krzyszycha");
+  addFullContact(l, "John", "Doe", "13/05/1993", "jdoe@gmail.com", "555 555 555", "ul. Uliczna 2");
 
   printList(l);
   printf("\n");
@@ -64,8 +66,10 @@ int main() {
   printTimes();
 
   Contact* c = search(l, "Beatka", "Obrok");
-  printContact(c);
-  printf("\n");
+  addAddress(c, "al. Alejowa 5");
+  printList(l);
+
+  printTimes();
 
   deleteList(l);
 

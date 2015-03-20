@@ -18,15 +18,15 @@ test: static shared dynamic
 
 static: $(DEPS) $(SOURCES) $(LIBDIR)/$(EXECUTABLE).a
 	$(CC) $(SOURCES) $(LIBDIR)/$(EXECUTABLE).a -o $(EXECUTABLE)_$@
-	./$(EXECUTABLE)_$@
+	./$(EXECUTABLE)_$@ > $@_test.log
 
 shared: $(DEPS) $(SOURCES) $(LIBDIR)/lib$(EXECUTABLE).so
 	$(CC) $(SOURCES) -L./$(LIBDIR) -l$(EXECUTABLE) -o $(EXECUTABLE)_$@ -Wl,-rpath=./$(LIBDIR)
-	./$(EXECUTABLE)_$@
+	./$(EXECUTABLE)_$@ > $@_test.log
 
 dynamic: ./test/dl_test.c $(DEPS) $(SOURCES) $(LIBDIR)/lib$(EXECUTABLE).so
 	$(CC) ./test/dl_test.c -ldl -o $(EXECUTABLE)_dynamic -Wl,-rpath=./$(LIBDIR)
-	./$(EXECUTABLE)_$@
+	./$(EXECUTABLE)_$@ > $@_test.log
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c $(DEPS)
 	$(CC) $(CFLAGS) $< -o $@
